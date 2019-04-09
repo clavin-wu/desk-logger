@@ -18,23 +18,31 @@
       height: 100px;
       background: #C1C1C1;
     }
+    #clear{
+      width: 80px;
+      height: 24px;
+      background: #A8FF24;
+      border: 2px solid #ccc;
+      outline: 0;
+    }
   </style>
 </head>
 
 <body>
   <h1 id="add">测试!</h1>
   <div>
-      <span>级别选择</span>
+      <span style="color:#4B0091">级别选择</span>
       <select name="" onchange="selectChange()" id="select">
-  
+           <option value="all">all</option>
       </select>
+      <button id="clear" onclick="clearData()">清空数据</button>
   </div>
   <div id="messageContent"></div>
   <script>
     require('./renderer.js')
     require('./bage.js')
     let contentMessage = document.getElementById("messageContent");
-    var { add } = require("./util.js");
+    var { add , clear } = require("./util.js");
     var { logArr } = require("./util.js")
     var lelve = ["info", "warn", "fatal", "debug", "error"];
     var select = document.getElementById("select");
@@ -44,8 +52,13 @@
         option.innerHTML = lelve[i];
         select.appendChild(option)
     }
+    //切换级别
     function selectChange() {
         add(select.value)
+    }
+    //清空数据
+    function clearData(){
+        add('all',[]);
     }
   </script>
 </body>

@@ -13,9 +13,13 @@ function add(lelve,arr) {
    }
 }
 //添加内容  
-function addContent(arr){
+function addContent(arr,lelve){
     arr.forEach(function(item,key){
-        if(item.lelve==lelve){
+        if(lelve==='all'){
+            let str = document.createElement('p');
+            str.innerHTML = `<h4>级别：${item.lelve}</h4>`+`<p>message：${JSON.stringify(item.message)}</p>`+`<p>时间：${getLocalTime(item.date)}</p>`;
+            contentMessage.appendChild(str); 
+        }else if(item.lelve==lelve){
             let str = document.createElement('p');
             str.innerHTML = `<h4>级别：${item.lelve}</h4>`+`<p>message：${JSON.stringify(item.message)}</p>`+`<p>时间：${getLocalTime(item.date)}</p>`;
             contentMessage.appendChild(str); 
@@ -23,5 +27,5 @@ function addContent(arr){
      })
 }
 module.exports={
-    add 
+    add
 }

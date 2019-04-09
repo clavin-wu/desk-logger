@@ -14,7 +14,7 @@ http.createServer(function (req, res) {
     if (req.method === "GET") {
         let params = url.parse(req.url, true).query;
         arr.push(params);
-        add(1,arr);
+        add('all',arr);
         res.write(JSON.stringify(arr))
         res.end()
     } else {
@@ -26,7 +26,7 @@ http.createServer(function (req, res) {
                 data = decodeURI(data);
                 var dataObject = querystring.parse(data);
                 arr.push(dataObject);
-                add(1,arr);
+                add('all',arr);
                 res.write(JSON.stringify(arr));
                 res.end()
         });
