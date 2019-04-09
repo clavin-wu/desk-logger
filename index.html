@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+  <style>
+    #select{
+      width: 80px;
+      height: 24px;
+      text-align: center;
+      line-height: 24px;
+      background: #BFEFFF;
+      outline: 0;
+    }
+    #messageContent>p{
+      width: 100%;
+      height: 100px;
+      background: #C1C1C1;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="add">测试!</h1>
+  <div>
+      <span>级别选择</span>
+      <select name="" onchange="selectChange()" id="select">
+  
+      </select>
+  </div>
+  <div id="messageContent"></div>
+  <script>
+    require('./renderer.js')
+    require('./bage.js')
+    let contentMessage = document.getElementById("messageContent");
+    var { add } = require("./util.js");
+    var { logArr } = require("./util.js")
+    var lelve = ["info", "warn", "fatal", "debug", "error"];
+    var select = document.getElementById("select");
+    for (var i = 0; i < lelve.length; i++) {
+        let option = document.createElement('option');
+        option.value = i + 1;
+        option.innerHTML = lelve[i];
+        select.appendChild(option)
+    }
+    function selectChange() {
+        add(select.value)
+    }
+  </script>
+</body>
+
+</html>

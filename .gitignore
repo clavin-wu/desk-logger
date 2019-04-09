@@ -1,0 +1,10 @@
+# dependencies
+node_modules/
+
+# IDE
+/.idea
+/.awcache
+/.vscode
+
+# Log files
+npm-debug.log*
