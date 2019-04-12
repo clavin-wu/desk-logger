@@ -1,14 +1,6 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
-const ipcMain = require('electron').ipcMain;
-var client = require('electron-connect').client;
-var gulp = require('gulp');
-var electron = require('electron-connect').server.create();
-// 监听 ‘blabla’ 通道，收到消息后输出，并向 'blibli' 通道发送消息
-ipcMain.on('blabla', function(event, arg) {
-  console.log(arg);
-  event.sender.send('blibli', 'hello client!');
-})
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
@@ -24,14 +16,10 @@ function createWindow () {
     }
   })
   // and load the index.html of the app.
+  // mainWindow.loadURL('http://localhost:3000')
   mainWindow.loadFile('index.html')
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
-  gulp.task('watch:electron', function () {
-    electron.start();
-    gulp.watch(["./*.js"], electron.restart);
-    gulp.watch(['./*.{html,js,css}'], electron.reload);
-  });
 // client.create(new BrowserWindow());
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {

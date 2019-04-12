@@ -1,0 +1,7 @@
+.ant-list-item span{
+  margin:0 .5rem;
+}
+.ant-spin-nested-loading{
+    height:320px;
+    overflow: auto;
+}

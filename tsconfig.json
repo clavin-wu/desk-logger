@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "target": "es6",
+        "strict": true,
+        "jsx": "preserve",
+        "lib": [
+            "es5", 
+            "dom",
+            "scripthost",
+            "es2015.promise"
+        ],
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}
